@@ -1,6 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+
 
 const Header = () => {
+
+
+
   return (
     <div>
         <div className="navbar bg-base-100 shadow-sm">
@@ -9,7 +15,7 @@ const Header = () => {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Cart</a></li>
+      <li><Link to='./Cart'>Cart</Link></li>
       <li>
         <details>
           <summary>Hari26</summary>

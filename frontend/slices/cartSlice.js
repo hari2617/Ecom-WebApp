@@ -15,7 +15,25 @@ const cartSlice=createSlice({
             else{
                 state.cartItem=[...state.cartItem,item];
             }
+            
+
+
+            //item prices
+
+            state.itemPrice=state.cartItem.reduce((acc,item)=>acc+item.price*item.qty,0)
+
+            //gst
+            state.taxPrice=Number(state.itemPrice*0.18);
+
+            //shipping
+            state.shippingPrice=state.itemPrice>100?10:20;
+
+            //total
+            state.toatlPrice=(state.itemPrice)+(state.shippingPrice)+(state.taxPrice)
+
+
             localStorage.setItem("cart",JSON.stringify(state))
+
         }
     }
 })
