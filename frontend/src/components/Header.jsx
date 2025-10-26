@@ -1,9 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
 
+
 const Header = () => {
+
+  const {cartItem}=useSelector((state)=>state.cart)
+
+  
 
 
 
@@ -15,7 +21,7 @@ const Header = () => {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-      <li><Link to='./Cart'>Cart</Link></li>
+      <li><Link to='./Cart'>Cart({cartItem.length})</Link></li>
       <li>
         <details>
           <summary>Hari26</summary>

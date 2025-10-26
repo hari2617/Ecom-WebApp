@@ -80,7 +80,7 @@ const products = [
     brand: 'Country Living',
     category: 'Furniture',
     price: 449.99,
-    countInStock: 2,
+    countInStock: 0,
     rating: 4.4,
     numReviews: 7,
   },

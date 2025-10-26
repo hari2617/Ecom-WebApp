@@ -8,7 +8,7 @@ const connectDB= async ()=>{
     try{
 
 
-        const connect=await mongoose.connect("");
+        const connect=await mongoose.connect("mongodb+srv://srihari26:srihari2617@ecom.ji7hu4y.mongodb.net/ecom");
         console.log(`mongoDB connected successfully`);
 
 

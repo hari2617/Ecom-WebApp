@@ -29,11 +29,34 @@ const cartSlice=createSlice({
             state.shippingPrice=state.itemPrice>100?10:20;
 
             //total
-            state.toatlPrice=(state.itemPrice)+(state.shippingPrice)+(state.taxPrice)
+            state.totPrice=(state.itemPrice)+(state.shippingPrice)+(state.taxPrice)
 
 
             localStorage.setItem("cart",JSON.stringify(state))
 
+        },
+
+        removeFromCart:(state,action)=>{
+            state.cartItem=state.cartItem.filter((i)=>i._id!==action.payload)
+
+
+
+            //calculating price for other items
+
+
+             state.itemPrice=state.cartItem.reduce((acc,item)=>acc+item.price*item.qty,0)
+
+            //gst for other items
+            state.taxPrice=Number(state.itemPrice*0.18);
+
+            //shipping for other items
+            state.shippingPrice=state.itemPrice>100?10:20;
+
+            //total for other items
+            state.totPrice=(state.itemPrice)+(state.shippingPrice)+(state.taxPrice)
+
+
+            localStorage.setItem("cart",JSON.stringify(state))
         }
     }
 })
@@ -41,4 +64,4 @@ const cartSlice=createSlice({
 
 export default cartSlice.reducer
 
-export const{addToCart}=cartSlice.actions;
+export const{addToCart,removeFromCart}=cartSlice.actions;
