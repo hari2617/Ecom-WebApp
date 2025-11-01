@@ -4,9 +4,10 @@ import Card from "../components/Card"
 //import products from '../../product.js'
 import { useGetProductsQuery } from '../../slices/productApiSlice'
 
+
 const Home = () => {
 
-  
+
 
 
   const{data:products,isLoading,error} =useGetProductsQuery();

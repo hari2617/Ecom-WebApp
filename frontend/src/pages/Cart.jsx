@@ -43,7 +43,7 @@ const Cart = () => {
                         <img src={i.image} className="w-full h-[280px]" />
                       </div>
 
-                      <div className="col-span-1 card shadow-xs">
+                      <div className="col-span-1 card shadow-xl">
                         <div className="card-body ">
                           <h1 className="font-bold text-gray-400 text-[20px]">{i.brand}</h1>
                           <div className="text-[15px] text-gray-400 mt-3">Price:{i.price}</div>

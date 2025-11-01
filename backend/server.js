@@ -3,12 +3,18 @@ import products from "./data/product.js";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import productRouter from "./Router/productRouter.js"
+import userRouter from "./Router/userRouter.js"
 
 import { notFound,handleError } from "./middleware/errorHandler.js";
 
 const app=express();
 connectDB();
 const port =5000;
+
+
+//body parser middleware
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 app.use(cors());
 
@@ -22,6 +28,7 @@ app.get("/",(req,res)=>{
 });
 
 app.use("/api/products",productRouter)
+app.use("/api/users",userRouter)
 
 app.use(notFound);
 app.use(handleError);

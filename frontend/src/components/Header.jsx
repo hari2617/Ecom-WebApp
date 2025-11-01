@@ -1,17 +1,20 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
+import {changeTheme} from "../../slices/themeSlice"
 
 
 const Header = () => {
 
   const {cartItem}=useSelector((state)=>state.cart)
+  const theme=useSelector((state)=>state.theme)
+ 
+
+  const dispatch=useDispatch();
 
   
-
-
 
   return (
     <div>
@@ -26,7 +29,7 @@ const Header = () => {
         <details>
           <summary>Hari26</summary>
           <ul className="bg-base-100 rounded-t-none p-2">
-            <li><a>Light</a></li>
+            <li><button onClick={()=>dispatch(changeTheme(theme==="light"?"dark":"light"))}>  {theme === "light" ? " Dark" : "Light"}</button></li>
             <li><a>Logout</a></li>
             <li><a>Log in</a></li>
           </ul>
